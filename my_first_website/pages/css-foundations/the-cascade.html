@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cascade</title>
+</head>
+<body>
+    <h1>The Cascade</h1>
+    <p>CSS = Cascading Style Sheets</p>
+    <P>The <strong>CSS Cascade</strong> is the way our browsers resolve competing CSS declarations.</P>
+    <p>The further down the cascade a declaration falls, the less likely it will end up as the final style.</p>
+    <ol>
+        <li>
+            <h2>Importance</h2>
+            <p><em>Type of rule</em></p>
+            <p>There are 4 basic types of rules:</p>
+            <ol>
+                <li>
+                    <strong>transition</strong><br>
+                    <p>Rules that apply to an active transition take the utmost importance</p>
+                </li>
+                <li>
+                    <strong>!important</strong>
+                    <p>When we add <code>!important</code> to the end of our declaration, it jumps to this level of the Cascade. Ideally, you reserve this level for Hail Marys, which are needed to override styles from third-party libraries.</p>
+                    <p>p{color: orchid !important;}</p>
+                </li>
+                <li>
+                    <strong>animation</strong>
+                    <p>Rules that apply to an active animation jump up a level in the Cascade</p>
+                </li>
+                <li>
+                    <strong>normal</strong>
+                    <p>This level is where the bulk of rules live</p>
+                </li>
+            </ol>
+        </li>
+        <li>
+            <h2>Origin</h2>
+            <p>where the rule was defined</p>
+            <ol>
+                <li>
+                    <strong>website</strong>
+                    <p>This is the only level that you have control over, as a web developer.</p>
+                </li>
+                <li>
+                    <strong>user</strong>
+                </li>
+                <li>
+                    <strong>browser</strong>
+                    <p>Each browser has its own set of styles, which is why things like <code>&lt;button&gt;</code>s have default styles.</p>
+                </li>
+            </ol>
+            <p>Funky fact alert! The hierarchy here is actually reversed for <code>!important</code> rules, meaning that an <code>!important</code> browser default rule wins over an <code>!important</code> website rule (whereas a website rule normally wins over a browser default).</p>
+        </li>
+        <li>
+            <h2>Specificity</h2>
+            <p>There are five levels of selectors:</p>
+            <ol>
+                <li>
+                    <strong>inline</strong>
+                    <p>Styles declared within a <code>style</code> HTML property are the most specific</p>
+                </li>
+                <li>
+                    <strong>layer</strong>
+                    <p>Cascade layers allow you to define explicit "layers" of styles, for intentional handling of specificity. Layers "win" by being defined later, for example:</p>
+                    <img src="../../img/css-cascade-layer-example.png" alt="Image of a CSS cascade layer example">
+                    <p>In this example, our body text will be green, since layer two is defined after layer one. Unlayered styles will take precendence, though, to help with backwards compatibility.</p>
+                </li>
+                <p>When we create a CSS declaration, we can target specific elements using selectors.</p>
+                <li>
+                    <strong>id</strong>
+                    <p>We can target elements based on their <code>id</code>, using the syntax <code>#id</code></p>
+                </li>
+                <li>
+                    <strong>class | attribute | pseudo-class</strong>
+                    <p>We can target elements based on their <code>class</code>, using the syntax <code>.class</code>This level also includes <strong>attribute selectors</strong> that target HTML attributes, like <code>[checked]</code> and <code>[href="https://wattenberger.com"]</code> This level also includes <strong>pseudo-selectors</strong>, like <code>:hover</code> and <code>:first-of-type</code></p>
+                </li>
+                <li><strong>type | pseudo-element</strong></li>
+                <p>We can target elements based on their <strong>tag type</strong>, using the syntax <code>type</code> This level also includes <strong>pseudo-elements</strong>, like <code>:before</code> and <code>:selection</code></p>
+            </ol>
+            <p>Fun fact alert! The universal selector (*) and combinators (+, >, ~, _, ||) have no effect on specificity.</p>
+        </li>
+        <p>One thing to note about levels on this tier is that <strong>the number of hits on the highest-reached level matter.</strong></p>
+        <p>Additionally, on this tier of the Cascade, <strong>ties can be broken within this tier.</strong> This means that, if two rules have the same number of hits on their highest level, one can win by having a hit on the next level down.</p>
+        <li>
+            <h2>Position</h2>
+            <p>And lastly, we descend to the fourth, and final, tier of the Cascade, which looks at the order that the rules were defined in.</p>
+            <p>Rules that are defined later in linked stylesheets or <code>&lt;style&gt;</code> tags will win, given that everything else in the Cascade is the same.</p>
+        </li>
+</body>
+</html>
