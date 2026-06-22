@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+<body>
+    <h1>Flexbox</h1>
+    <h2>How to position elements using Flexbox</h2>
+    <p>Flexbox is a way to arrange items into rows or columns. These items will flex (i.e. grow or shrink) based on some rules that you can define.</p>
+    <h2>Flex Containers and Flex Items</h2>
+    <p>A flex container is any element that has <code>display: flex</code> on it. A flex item is any element that lives directly inside of a flex container.</p>
+    <img alt="image of flexbox items and containers" src="../img/flexbox1.png">
+    <p>Somewhat confusingly, any element can be both a flex container and a flex item. Said another way, you can also put <code>display: flex</code> on a flex item and then use flexbox to arrange its children.</p>
+    <img alt="image of flexbox items also being containers" src="../img/flexbox2.png">
+    <p>Creating and nesting multiple flex containers and items is the primary way we will be building up complex layouts. The following image was achieved using only flexbox to arrange, size, and place the various elements. Flexbox is a very powerful tool.</p>
+    <img alt="image of flexbox being used to organize a page" src="../img/flexbox3.png">
+    <h2>How to create useful components and layouts that go beyond just stacking and centering items</h2>
+    <h3>The Flex shorthand</h3>
+    <p>The <code>flex</code> declaration is actually a shorthand for 3 properties that you can set on a flex item. These properties affect how flex items size themselves within their container. You've seen some shorthand properties before, but we haven't officially defined them yet.</p>
+    <blockquote>
+        <p>Shorthand properties are CSS properties that let you set the values of multiple other CSS properties simultaneously. Using a shorthand property, you can write more concise (and often more readable) stylesheets, saving time and energy.</p>
+    </blockquote>
+    <p>In this case, <code>flex</code> is actually a shorthand for <code>flex-grow</code>, <code>flex-shrink</code> and <code>flex-basis</code>.</p>
+    <img alt="image of flex being defined in a div" src="../img/flexbox4.png">
+    <p>In the above screenshot, <code>flex: 1</code> equates to: <code>flex-grow: 1</code>, <code>flex-shrink: 1</code>, <code>flex-basis: 0</code>.</p>
+    <h4>Flex-grow</h4>
+    <p><code>flex-grow</code> expects a single number as its value, and that number is used as the flex-item's “growth factor”. When we applied <code>flex: 1</code> to every div inside our container, we were telling every div to grow the same amount. The result of this is that every div ends up the exact same size. If we instead add <code>flex: 2</code> to just one of the divs, then that div would grow to 2x the size of the others.</p>
+    <h4>Flex-shrink</h4>
+    <p><code>flex-shrink</code> is similar to <code>flex-grow</code>, but sets the “shrink factor” of a flex item. <code>flex-shrink</code> only ends up being applied if the size of all flex items is larger than their parent container. For example, if our 3 divs from above had a width declaration like: <code>width: 100px</code>, and .<code>flex-container</code> was smaller than <code>300px</code>, our divs would have to shrink to fit.</p>
+    <p>The default shrink factor is <code>flex-shrink: 1</code>, which means all items will shrink evenly. If you do not want an item to shrink then you can specify <code>flex-shrink: 0;</code>. You can also specify higher numbers to make certain items shrink at a higher rate than normal.</p>
+    <h4>Flex-basis</h4>
+    <p></p>
+</body>
+</html>
